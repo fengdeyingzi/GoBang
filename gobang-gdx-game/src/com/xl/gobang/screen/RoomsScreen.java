@@ -7,23 +7,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.xl.gdx.GdxToast;
 import com.xl.gdx.XLScreen;
 import com.xl.gobang.MainGame;
 import com.xl.gobang.OnConnectListener;
 import com.xl.gobang.view.FlexGroup;
+import com.xl.gobang.view.TextButtonView;
 
 //显示房间
 public class RoomsScreen extends XLScreen implements OnConnectListener{
 
 	public static final String TAG = "RoomsScreen";
 	Skin skin;
-	ArrayList<TextButton> list_button_rooms;
+	ArrayList<TextButtonView> list_button_rooms;
 	FlexGroup group_buttons;
 	Stage stage;
 	MainGame game;
+	GdxToast toast;
 	
 	
 	public RoomsScreen(int width, int height) {
@@ -32,11 +39,15 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 		skin = new Skin(Gdx.files.internal("ui/packer.json"));
 		group_buttons= new FlexGroup(width-100, height-100);
 		group_buttons.setPosition(50, 50);
+		toast= new GdxToast("", skin,"toast");
 		stage = getStage();
-		list_button_rooms= new ArrayList<TextButton>();
+		stage.addActor(toast);
+		toast.setPosition(720/2, 150);
+		list_button_rooms= new ArrayList<TextButtonView>();
 		for(int i=0;i<10;i++){
-			TextButton button= new TextButton("房间："+i, skin,"default");
+			TextButtonView button= new TextButtonView("房间："+i, skin,"default");
 			list_button_rooms.add(button);
+			
 			button.setWidth(200);
 			button.setHeight(50);
 		}
@@ -44,6 +55,7 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 		setRooms();
 		//list_button_rooms.get(0).setPosition(0, 100);
 		stage.addActor(group_buttons);
+		Gdx.input.setInputProcessor(stage);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -108,12 +120,42 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 				JSONObject obj_room= list.getJSONObject(i);
 				String room_name= obj_room.getString("roomName");
 				int roomId = obj_room.getInt("roomId");
-				TextButton button= new TextButton(room_name, skin,"default");
+				TextButtonView button= new TextButtonView(room_name, skin,"default");
 				button.setWidth(200);
 				button.setHeight(50);
+				button.setId(roomId);
+				button.setName(room_name);
+				button.addListener(new ClickListener(){
+					@Override
+					public void clicked(InputEvent event, float x, float y) {
+						// TODO Auto-generated method stub
+						
+						Actor actor= event.getListenerActor();
+						if(actor instanceof TextButtonView){
+							TextButtonView view= (TextButtonView) event.getListenerActor();
+						joinRoom(view.getId(), view.getName());
+						System.out.println("加入房间"+view.getName());
+						}
+						else {
+							System.out.println("点击失败"+actor.getName());
+						}
+						
+						
+						
+					}
+				});
+				button.setName(""+roomId);
 				group_buttons.addActor(button);
 			}
 			group_buttons.invalidate();
+		}
+		else if(action.equals("joinRoom")){
+			int userid= object.getInt("userid");
+			String user= object.getString("user");
+			int roomid= object.getInt("roomid");
+			String roomname= object.getString("roomName");
+			toast.setText(user+"加入了房间");
+			toast.show();
 		}
 	}
 
@@ -144,6 +186,23 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 		jsonObject.put("userName", "影子");
 		jsonObject.put("type", "json");
 		jsonObject.put("uuid", "0000000000000000");
+		game.send(jsonObject);
+	}
+	
+	//加入房间
+	public void joinRoom(int roomid, String roomName) {
+		JSONObject jsonObject= new JSONObject();
+		jsonObject.put("action", "joinRoom");
+		jsonObject.put("roomId", roomid);
+		jsonObject.put("roomName", roomName);
+		game.send(jsonObject);
+	}
+	
+	//获取棋盘数据
+	public void getChessBoardData() {
+		JSONObject jsonObject= new JSONObject();
+		jsonObject.put("action", "getChessboardData");
+		jsonObject.put("type", "chars");
 		game.send(jsonObject);
 	}
 	
