@@ -1,0 +1,137 @@
+info face="黑体" size=46 bold=0 italic=0 charset="" unicode=0 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1
+common lineHeight=46 base=46 scaleW=256 scaleH=256 pages=1 packed=0
+page id=0 file="font_menu.atlas"
+chars count=19
+风
+  rotate: false
+  xy:0,0
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+的
+  rotate: false
+  xy:46,0
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+影
+  rotate: false
+  xy:92,0
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+子
+  rotate: false
+  xy:138,0
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+作
+  rotate: false
+  xy:184,0
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+品
+  rotate: false
+  xy:0,46
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+开
+  rotate: false
+  xy:46,46
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+始
+  rotate: false
+  xy:92,46
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+游
+  rotate: false
+  xy:138,46
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+戏
+  rotate: false
+  xy:184,46
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+帮
+  rotate: false
+  xy:0,92
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+助
+  rotate: false
+  xy:46,92
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+关
+  rotate: false
+  xy:92,92
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+于
+  rotate: false
+  xy:138,92
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+退
+  rotate: false
+  xy:184,92
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+出
+  rotate: false
+  xy:0,138
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+俱
+  rotate: false
+  xy:46,138
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+乐
+  rotate: false
+  xy:92,138
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1
+部
+  rotate: false
+  xy:138,138
+  size:46,46
+  orig:46,46
+  offset:0,0
+  index:-1

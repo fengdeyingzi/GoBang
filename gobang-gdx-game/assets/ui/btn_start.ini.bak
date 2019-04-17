@@ -1,0 +1,36 @@
+[BUTTON]
+img=btn_start.png
+up=0,0,132,48
+down=0,48,132,48
+name=start
+x=250
+y=0
+#对齐方式 右上角
+gravity=center|top
+width=500
+height=300
+alpha=100
+rotation=0
+#文本控件
+[LABEL]
+text=测试
+name=start
+textColor=#505050ff
+x=200
+y=500
+alpha=255
+rotation=0
+[TEXTBUTTON]
+img=btn_start.png
+up=0,0,132,48
+down=0,48,132,48
+name=start
+text=测测text
+x=250
+y=0
+#对齐方式 右上角
+gravity=center|top
+width=500
+height=300
+alpha=100
+rotation=0

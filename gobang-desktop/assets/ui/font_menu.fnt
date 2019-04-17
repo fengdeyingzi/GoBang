@@ -1,0 +1,23 @@
+info face="黑体" size=46 bold=0 italic=0 charset="" unicode=0 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1
+common lineHeight=46 base=46 scaleW=256 scaleH=256 pages=1 packed=0
+page id=0 file="font_menu.fnt"
+chars count=19
+char id=39118   x=0     y=0     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=30340   x=46     y=0     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=24433   x=92     y=0     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=23376   x=138     y=0     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=20316   x=184     y=0     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=21697   x=0     y=46     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=24320   x=46     y=46     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=22987   x=92     y=46     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=28216   x=138     y=46     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=25103   x=184     y=46     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=24110   x=0     y=92     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=21161   x=46     y=92     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=20851   x=92     y=92     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=20110   x=138     y=92     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=36864   x=184     y=92     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=20986   x=0     y=138     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=20465   x=46     y=138     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=20048   x=92     y=138     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 
+char id=37096   x=138     y=138     width=46     height=46     xoffset=0     yoffset=0    xadvance=46     page=0  chnl=0 

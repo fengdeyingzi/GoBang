@@ -1,0 +1,46 @@
+{
+com.badlogic.gdx.graphics.g2d.BitmapFont: {
+	default-font: {file: font32.fnt },
+	min-font: {file:font24.fnt},
+	big-font: {file: font40.fnt},
+	menu-font:{file:font_menu.fnt}
+	
+},
+com.badlogic.gdx.graphics.Color: {
+	green: {a: 1, b: 0, g: 1, r: 0 },
+	white: {a: 1, b: 1, g: 1, r: 1 },
+	red: {a: 1, b: 0, g: 0, r: 1 },
+	black: {a: 1, b: 0, g: 0, r: 0 },
+	grey: {a: 1, b: 0.5, g: 0.5, r: 0.5 },
+	default: {a: 1, b: 0, g: 0, r: 0 },
+	inverse: {a: 1, b: 1, g: 1, r: 1 },
+	ui: {a: 1, b: 0.9, g: 0.71, r: 0.2 }
+},
+
+com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+    default: {down: pad_button_down, up: pad_button, disabled: pad_button},
+    pad: {down: pad_button_down, up: pad_button, disabled: pad_button},
+	dialog: {down: dialog_exit_down, up: dialog_exit, disabled: dialog_exit }
+	
+},
+
+com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
+default: {down:btn_menu_down,up:btn_menu_up, disabled:btn_menu_up,font:default-font,fontColor:white,downFontColor:black,disabledFontColor:grey},
+toast: {down: toast, up: toast, disabled: toast, font: default-font, fontColor: white, downFontColor: white, disabledFontColor: grey },
+menu: {down: btn_menu_down, up: btn_menu_up, disabled: btn_menu_up, font: menu-font, fontColor: white, downFontColor: white, disabledFontColor: grey }
+},
+com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+	default: {font: default-font, fontColor: default },
+	toast: {background:toast, font: default-font, fontColor:white },
+	dialog: {font: default-font, fontColor:white }
+},
+
+com.badlogic.gdx.scenes.scene2d.ui.Touchpad$TouchpadStyle: {
+	default: {background:pad_back , knob: pad_pad }
+},
+
+com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
+	default: { titleFont: default-font, background: dialog_background, titleFontColor: white },
+	dialog: { titleFont: default-font, background: dialog_background, titleFontColor: white }
+}
+}

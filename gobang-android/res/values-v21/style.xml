@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="AppTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+        <item name="android:colorControlHighlight">#ff7ebef0</item>
+        <item name="android:colorPrimary">#ff60a0f0</item>
+		<item name="android:windowNoTitle">true</item>
+		<!-- 全屏模式设置 -->
+		<item name="android:windowFullscreen">
+			true
+		</item>
+        <item name="android:colorAccent">#ff60a0f0</item>
+        <item name="android:statusBarColor">#ff4f9aee</item>
+        <item name="android:navigationBarColor">#ff303030</item>
+    </style>
+	
+</resources>
