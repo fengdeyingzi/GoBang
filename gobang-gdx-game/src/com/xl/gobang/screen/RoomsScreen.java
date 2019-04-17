@@ -40,6 +40,7 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 		group_buttons= new FlexGroup(width-100, height-100);
 		group_buttons.setPosition(50, 50);
 		toast= new GdxToast("", skin,"toast");
+		toast.setWidth(300);
 		stage = getStage();
 		stage.addActor(toast);
 		toast.setPosition(720/2, 150);
@@ -134,6 +135,11 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 						if(actor instanceof TextButtonView){
 							TextButtonView view= (TextButtonView) event.getListenerActor();
 						joinRoom(view.getId(), view.getName());
+						if(view.getId()==9){
+							//exitServer();
+							toast.setText("重启服务器");
+							toast.show();
+						}
 						System.out.println("加入房间"+view.getName());
 						}
 						else {
@@ -193,6 +199,7 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 	public void joinRoom(int roomid, String roomName) {
 		JSONObject jsonObject= new JSONObject();
 		jsonObject.put("action", "joinRoom");
+		jsonObject.put("userId", 1);
 		jsonObject.put("roomId", roomid);
 		jsonObject.put("roomName", roomName);
 		game.send(jsonObject);
@@ -203,6 +210,13 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 		JSONObject jsonObject= new JSONObject();
 		jsonObject.put("action", "getChessboardData");
 		jsonObject.put("type", "chars");
+		game.send(jsonObject);
+	}
+	
+	//重启服务器
+	public void exitServer() {
+		JSONObject jsonObject= new JSONObject();
+		jsonObject.put("action", "exit");
 		game.send(jsonObject);
 	}
 	
