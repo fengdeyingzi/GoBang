@@ -2,21 +2,28 @@ package com.xl.gobang.screen;
 
 import java.util.ArrayList;
 
+import org.java_websocket.handshake.ServerHandshake;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.xl.gdx.XLScreen;
+import com.xl.gobang.MainGame;
+import com.xl.gobang.OnConnectListener;
 import com.xl.gobang.view.FlexGroup;
 
 //显示房间
-public class RoomsScreen extends XLScreen{
+public class RoomsScreen extends XLScreen implements OnConnectListener{
 
 	public static final String TAG = "RoomsScreen";
 	Skin skin;
 	ArrayList<TextButton> list_button_rooms;
 	FlexGroup group_buttons;
 	Stage stage;
+	MainGame game;
 	
 	
 	public RoomsScreen(int width, int height) {
@@ -40,6 +47,10 @@ public class RoomsScreen extends XLScreen{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public void setGame(MainGame game){
+		this.game= game;
+	}
+	
 	//布局房间
 	private void setRooms(){
 		for(int i=0;i<list_button_rooms.size();i++){
@@ -61,11 +72,80 @@ public class RoomsScreen extends XLScreen{
 	
 	//向libgdx线程发送数据
 	public void sendText(String text){
-		ha
+		Gdx.app.postRunnable(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+
+	@Override
+	public void onOpen(ServerHandshake handshakedata) {
+		// TODO Auto-generated method stub
+		//发送登陆数据
+		enterGoBang();
+	}
+
+	@Override
+	public void onMessage(String msg) {
+		// TODO Auto-generated method stub
+		JSONObject object= new JSONObject(msg);
+		String action= object.getString("action");
+		if(action.equals("login")){
+			boolean isLogin= object.getBoolean("isLogin");
+			if(isLogin)
+			getRooms();
+		}
+		if(action.equals("roomList")){
+			
+			int page=object.getInt("page"); //0
+			JSONArray list=object.getJSONArray("list"); //[
+			group_buttons.clear();
+			for(int i=0;i<list.length();i++){
+				JSONObject obj_room= list.getJSONObject(i);
+				String room_name= obj_room.getString("roomName");
+				int roomId = obj_room.getInt("roomId");
+				TextButton button= new TextButton(room_name, skin,"default");
+				button.setWidth(200);
+				button.setHeight(50);
+				group_buttons.addActor(button);
+			}
+			group_buttons.invalidate();
+		}
+	}
+
+	@Override
+	public void onClose(int code, String reason, boolean remote) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onError(Exception e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
+	//
+	public void getRooms() {
+		JSONObject jsonObject= new JSONObject();
+		jsonObject.put("action", "getRoomList");
+		jsonObject.put("page", 0);
+		game.send(jsonObject);
+	}
 	
-	
+	//登陆
+	public void enterGoBang(){
+		JSONObject jsonObject= new JSONObject();
+		jsonObject.put("action", "login2");
+		jsonObject.put("userName", "影子");
+		jsonObject.put("type", "json");
+		jsonObject.put("uuid", "0000000000000000");
+		game.send(jsonObject);
+	}
 	
 	
 
