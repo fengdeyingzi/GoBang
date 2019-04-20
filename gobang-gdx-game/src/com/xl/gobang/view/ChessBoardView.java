@@ -10,6 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  */
 public class ChessBoardView extends Actor{
 	
+	int board[]; //棋盘
+	int dx,dy;
+	
+	
+	
+	
 	@Override
 	public void setPosition(float x, float y) {
 		// TODO Auto-generated method stub
@@ -20,6 +26,7 @@ public class ChessBoardView extends Actor{
 	public void draw(Batch batch, float parentAlpha) {
 		// TODO Auto-generated method stub
 		super.draw(batch, parentAlpha);
+		
 	}
 	
 	@Override
@@ -33,5 +40,11 @@ public class ChessBoardView extends Actor{
 	public void name() {
 		
 	}
+	
+	//更新棋盘数据
+	
+	//设置棋盘数据
+	
+	//清空棋盘
 
 }
