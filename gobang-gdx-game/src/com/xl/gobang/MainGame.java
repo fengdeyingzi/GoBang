@@ -13,6 +13,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.xl.gdx.XLGame;
 import com.xl.gdx.XLScreen;
+import com.xl.gobang.screen.BoardScreen;
 import com.xl.gobang.screen.RoomsScreen;
 
 /**
@@ -95,9 +96,11 @@ public class MainGame extends XLGame{
 	public void init() {
 		// TODO Auto-generated method stub
 		super.init();
-		roomScreen= new RoomsScreen(SCREEN_WIDTH, SCREEN_HEIGHT);
-		startScreen(RoomsScreen.class);
-		((RoomsScreen)getScreen()).setGame(this);
+		//roomScreen= new RoomsScreen(SCREEN_WIDTH, SCREEN_HEIGHT);
+		//startScreen(RoomsScreen.class);
+		
+		//((RoomsScreen)getScreen()).setGame(this);
+		startScreen(BoardScreen.class);
 		roomScreen= (XLScreen) getScreen();
 		client.connect();
 	}

@@ -18,6 +18,7 @@ import com.xl.gdx.GdxToast;
 import com.xl.gdx.XLScreen;
 import com.xl.gobang.MainGame;
 import com.xl.gobang.OnConnectListener;
+import com.xl.gobang.UserInfo;
 import com.xl.gobang.view.FlexGroup;
 import com.xl.gobang.view.TextButtonView;
 
@@ -31,6 +32,7 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 	Stage stage;
 	MainGame game;
 	GdxToast toast;
+	
 	
 	
 	public RoomsScreen(int width, int height) {
@@ -109,8 +111,11 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 		String action= object.getString("action");
 		if(action.equals("login")){
 			boolean isLogin= object.getBoolean("isLogin");
-			if(isLogin)
-			getRooms();
+			if(isLogin){
+				getRooms();
+				//UserInfo.userName = "影子";
+			}
+			
 		}
 		if(action.equals("roomList")){
 			
@@ -187,6 +192,7 @@ public class RoomsScreen extends XLScreen implements OnConnectListener{
 	
 	//登陆
 	public void enterGoBang(){
+		UserInfo.userName= "影子";
 		JSONObject jsonObject= new JSONObject();
 		jsonObject.put("action", "login2");
 		jsonObject.put("userName", "影子");

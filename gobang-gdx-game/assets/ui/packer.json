@@ -20,8 +20,8 @@ com.badlogic.gdx.graphics.Color: {
 com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
     default: {down: pad_button_down, up: pad_button, disabled: pad_button},
     pad: {down: pad_button_down, up: pad_button, disabled: pad_button},
-	dialog: {down: dialog_exit_down, up: dialog_exit, disabled: dialog_exit }
-	
+	dialog: {down: dialog_exit_down, up: dialog_exit, disabled: dialog_exit },
+	button: {down: btn, up:btn_up, disabled:btn }
 },
 
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
